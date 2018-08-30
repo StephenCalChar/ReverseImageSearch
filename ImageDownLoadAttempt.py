@@ -29,21 +29,13 @@ for file in file_list:
     browser = webdriver.Firefox(executable_path='/home/stephen2/Documents/geckodriver')
     time.sleep(15)
     browser.get('https://www.google.co.uk/imghp')
-
-    # Click "Search by image" icon
     elem = browser.find_element_by_class_name('gsst_a')
     elem.click()
-
-    # Switch from "Paste image URL" to "Upload an image"
     browser.execute_script("google.qb.ti(true);return false")
-    # Set the path of the local file and submit
     time.sleep(3)
     ele0 = browser.find_element_by_id("qbfile")
     ele0.send_keys(file)
-
     time.sleep(25)
-
-    #  Clicking 'Visually Similar Images'
     ele1 = browser.find_element_by_link_text("Visually similar images")
     ele1.click()
 
